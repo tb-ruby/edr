@@ -1,0 +1,18 @@
+\documentclass[11pt]{article}
+\title{Report on Creation of an Example Test Ateng}
+\begin{document}
+
+Our initial exploration of the problem space lead us to chose to make use of the Ruby programming language as a basis for our solution. This lead to a number of efficiencies, however, there were some drawbacks that will be reported on later. We anticipate that our solution will run satisfactorily on recent MacOS and linux systems, however, we believe that there would need to be some modifications to enable it to run under Windows. 
+
+We started by creating an application structure that we feel is based upon common architecture. In our repository, in the bin folder, we wanted to have a single executable that provided an entry point to all functionality of our test agent. We  chose to use the \textit{thor}\footnote{https://github.com/rails/thor} ruby gem  to handle most of the user interaction. Our initial framework setup a command line program allowing the following tasks: 
+\begin{itemize}
+	\item delete\_file 
+	\item make\_file
+	\item modify\_file
+	\item network\_connection
+	\item start\_process
+\end{itemize}
+
+Each action was to be logged, we formatted our logfile with a JSON entry for each line in the logfile. A number of the log entry items required information about our process and other processes. We discovered while working on this requirement that there the ruby language standard library would not be sufficient for all of the logging data that we needed. We had several options available to us. We could have tried to access procfs for our solution, however, this would limit our solution to only working with linux and windows systems running cygwin. Our alternative was to utilize a wrapper around the ps command \footnote{https://github.com/hungtatai/ps-ruby}
+
+\end{document}
