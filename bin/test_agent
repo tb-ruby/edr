@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'bundler/setup'
+Bundler.require(:default)
+
+require_relative '../lib/test_agent/cli'
+
+
+TestAgent::CLI.start(ARGV)
